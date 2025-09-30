@@ -3,11 +3,9 @@ package basicscripts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-// Handles PIM module actions
 public class AorangePIM {
     WebDriver driver;
 
-    // Locators
     private By addEmployeeBtn = By.xpath("//a[text()='Add Employee']");
     private By firstNameField = By.name("firstName");
     private By lastNameField  = By.name("lastName");
@@ -18,7 +16,6 @@ public class AorangePIM {
         this.driver = driver;
     }
 
-    // Add employee
     public void addEmployee(String firstName, String lastName) throws InterruptedException {
         driver.findElement(addEmployeeBtn).click();
         Thread.sleep(1500);
@@ -28,15 +25,15 @@ public class AorangePIM {
         Thread.sleep(2000);
     }
 
-    // Verify employee
     public void verifyEmployee(String fullName) throws InterruptedException {
         driver.findElement(employeeList).click();
         Thread.sleep(1500);
 
         if (driver.getPageSource().contains(fullName)) {
-            System.out.println(fullName + " - Name Verified ✅");
+            System.out.println(fullName + "  Verified");
         } else {
-            System.out.println(fullName + " - Not Found ❌");
+            System.out.println(fullName + " Not Found ");
         }
     }
 }
+
