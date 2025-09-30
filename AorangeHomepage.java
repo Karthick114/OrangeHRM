@@ -9,11 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-// Handles homepage/dashboard actions
 public class AorangeHomepage {
     WebDriver driver;
 
-    // Locators
     private By pimMenu = By.xpath("//span[text()='PIM']");
     private By userDropdown = By.xpath("//p[@class='oxd-userdropdown-name']");
     private By logoutButton = By.xpath("//a[text()='Logout']");
@@ -22,9 +20,8 @@ public class AorangeHomepage {
         this.driver = driver;
     }
 
-    // Navigate to PIM
     public void goToPIM() {
-    	WebDriverWait wait = new WebDriverWait(driver, 10); // old style
+    	WebDriverWait wait = new WebDriverWait(driver, 10); 
         WebElement pimElement = wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='PIM']"))
         );
@@ -32,10 +29,10 @@ public class AorangeHomepage {
     }
 
 
-    // Logout
     public void logout() throws InterruptedException {
         driver.findElement(userDropdown).click();
         Thread.sleep(1000);
         driver.findElement(logoutButton).click();
     }
 }
+
